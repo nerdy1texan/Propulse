@@ -20,7 +20,7 @@ graph TD
     end
     
     H[(Google Cloud<br/>Storage)] -->|Proposals DB| E
-    I[Gemini 1.5] -->|LLM API| D
+    I[Gemini 2.5] -->|LLM API| D
 ```
 
 ## 🤖 Agent Collaboration
