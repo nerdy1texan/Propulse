@@ -26,8 +26,8 @@ env/
 ENV/
 .env
 .venv
-.env.*
-!.env.sample
+# .env.*
+# !.env.sample
 
 # Conda
 .conda/

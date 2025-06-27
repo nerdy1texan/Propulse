@@ -81,6 +81,36 @@ graph TD
    pip install -r requirements.txt
    ```
 
+### Environment Variables Setup
+
+Create a `.env` file in the project root with the following variables:
+
+```bash
+# API Keys
+GEMINI_API_KEY=your-gemini-api-key
+
+# Service URLs
+BACKEND_URL=http://localhost:8000
+FRONTEND_URL=http://localhost:8501
+
+# Google Cloud Configuration
+GCP_PROJECT_ID=your-project-id
+STORAGE_BUCKET=your-proposals-bucket
+
+# Logging Configuration
+LOG_LEVEL=INFO
+ENABLE_AGENT_LOGGING=true
+
+# Agent Configuration
+MAX_TOKENS_PER_REQUEST=8192
+TEMPERATURE=0.7
+TOP_P=0.95
+
+# Security
+ENABLE_AUTH=false
+ALLOWED_ORIGINS=http://localhost:8501,https://your-domain.com
+```
+
 ### Local Development
 1. Clone the repository:
    ```bash
@@ -90,8 +120,7 @@ graph TD
 
 2. Set up environment variables:
    ```bash
-   cp .env.sample .env
-   # Edit .env with your credentials
+   # Copy the environment variables above into .env file
    ```
 
 3. Start services:
