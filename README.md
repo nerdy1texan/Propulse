@@ -1,6 +1,6 @@
 # ProPulse: Enterprise Proposal Assistant
 
-ProPulse is a multi-agent system that automates enterprise proposal generation using Google's Gemini 1.5 and ADK. The system leverages specialized AI agents to retrieve relevant past work, generate custom proposals, and validate content accuracy.
+ProPulse is a multi-agent system that automates enterprise proposal generation using Google's Gemini 2.5 and ADK. The system leverages specialized AI agents to retrieve relevant past work, generate custom proposals, and validate content accuracy.
 
 ## 🏗️ Architecture
 
@@ -17,10 +17,14 @@ graph TD
         E -->|Past Content| F
         F -->|Draft| G
         G -->|Validated| D
+        
+        E -->|Query| DB[(Proposals DB)]
+        DB -->|Results| E
+        
+        API[Gemini 2.5] -->|LLM API| D
+        API -->|Generation| F
+        API -->|Validation| G
     end
-    
-    H[(Google Cloud<br/>Storage)] -->|Proposals DB| E
-    I[Gemini 2.5] -->|LLM API| D
 ```
 
 ## 🤖 Agent Collaboration
@@ -43,37 +47,54 @@ graph TD
 ## 🚀 Setup Instructions
 
 ### Prerequisites
-- Python 3.9+
+- Conda or Miniconda
+- Git Bash (for Windows)
 - Google Cloud account
 - Gemini API access
 
-### Local Development
-1. Clone the repository:
+### Environment Setup
+
+#### Using Conda (Recommended)
+1. Create conda environment:
    ```bash
-   git clone https://github.com/your-org/enterprise-proposal-assistant.git
-   cd enterprise-proposal-assistant
+   # In Git Bash
+   conda env create -f environment.yml
    ```
 
-2. Create and activate virtual environment:
+2. Activate environment:
+   ```bash
+   # In Git Bash
+   conda activate propulse
+   ```
+
+#### Using Python venv (Alternative)
+1. Create and activate virtual environment:
    ```bash
    python -m venv venv
    source venv/bin/activate  # Linux/Mac
    # or
-   .\venv\Scripts\activate  # Windows
+   . venv/Scripts/activate   # Git Bash on Windows
    ```
 
-3. Install dependencies:
+2. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
 
-4. Set up environment variables:
+### Local Development
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/nerdy1texan/Propulse.git
+   cd enterprise-proposal-assistant
+   ```
+
+2. Set up environment variables:
    ```bash
    cp .env.sample .env
    # Edit .env with your credentials
    ```
 
-5. Start services:
+3. Start services:
    ```bash
    # Terminal 1: Backend
    cd backend
@@ -116,4 +137,4 @@ Required environment variables:
 
 ## 📝 License
 
-MIT License - see LICENSE file for details # Propulse
+MIT License - see LICENSE file for details

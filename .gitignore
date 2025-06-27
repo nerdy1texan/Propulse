@@ -1,0 +1,66 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.env
+.venv
+.env.*
+!.env.sample
+
+# Conda
+.conda/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Project specific
+logs/
+*.log
+backend/logs/
+frontend/.streamlit/secrets.toml
+
+# Google Cloud
+*.json
+!personas.json
+!mcp_schemas/*.json
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+
+# Documentation
+docs/_build/
+site/
+
+# Temporary files
+*.bak
+*.tmp
+*~ 
